@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Speech Practice Script Coach</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+
+        <div class="logo">🎤</div>
+
+        <div>
+            <h1>Speech Practice Script Coach</h1>
+            <p>Analyze your presentation before you speak</p>
+        </div>
+
+    </div>
+
+    <span class="status">● Flask Backend</span>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <div>
+            <span class="tag">TEXT & SPEECH ANALYSIS</span>
+
+            <h2>
+                Practice your speech.<br>
+                Improve your delivery.
+            </h2>
+
+            <p>
+                Enter your presentation script and get
+                instant text-based speaking feedback.
+            </p>
+        </div>
+
+    </section>
+
+
+    <section class="workspace">
+
+        <div class="editor-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h3>Your Speech</h3>
+                    <p>Paste or type your presentation below.</p>
+                </div>
+
+                <button id="sampleBtn">
+                    Load Sample
+                </button>
+
+            </div>
+
+
+            <textarea
+                id="speechText"
+                placeholder="Start writing your speech here..."
+            ></textarea>
+
+
+            <div class="editor-footer">
+
+                <span id="liveWords">
+                    0 words
+                </span>
+
+                <button
+                    id="analyzeBtn"
+                    class="primary-btn"
+                >
+                    Analyze Speech →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="results-panel">
+
+            <h3>Analysis Results</h3>
+
+            <div class="result-grid">
+
+                <div class="result-card">
+                    <span>📝</span>
+                    <small>WORDS</small>
+                    <strong id="wordCount">0</strong>
+                </div>
+
+                <div class="result-card">
+                    <span>⏱️</span>
+                    <small>TIME</small>
+                    <strong id="speechTime">0 sec</strong>
+                </div>
+
+                <div class="result-card">
+                    <span>📄</span>
+                    <small>SENTENCES</small>
+                    <strong id="sentenceCount">0</strong>
+                </div>
+
+                <div class="result-card">
+                    <span>💬</span>
+                    <small>FILLERS</small>
+                    <strong id="fillerCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="details">
+
+                <div class="detail-row">
+                    <span>Average sentence length</span>
+                    <strong id="averageSentence">0</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>Filler word usage</span>
+                    <strong id="fillerStatus">None</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>Estimated speaking speed</span>
+                    <strong id="speakingSpeed">0 WPM</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="bottom-grid">
+
+        <div class="card">
+
+            <h3>🔎 Common Keywords</h3>
+
+            <div id="keywords"
+                 class="keyword-list">
+
+                <p class="empty">
+                    Analyze your speech to see keywords.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>💡 Coach Feedback</h3>
+
+            <div id="feedback">
+
+                <p class="empty">
+                    Feedback will appear after analysis.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="card long-card">
+
+        <h3>📌 Sentences to Review</h3>
+
+        <p class="description">
+            Sentences longer than 25 words may be harder
+            to deliver clearly.
+        </p>
+
+        <div id="longSentences">
+
+            <p class="empty">
+                No analysis yet.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    Speech Practice Script Coach
+    • Text and Speech Analysis
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>
